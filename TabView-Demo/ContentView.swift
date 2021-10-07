@@ -8,10 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var tabIndex = 0
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        TabView(selection: $tabIndex) {
+            Text("This is tap one")
+                .tabItem {
+                    VStack {
+                        Image(systemName: "pencil")
+                        Text("Tab1")
+                    }
+                }
+                .tag(0)
+            
+            VStack {
+                Text("This is tab 2!")
+                Text("This is some more text!")
+            }
+            .tabItem {
+                VStack {
+                    Image(systemName: "star")
+                    Text("Tab 2")
+                }
+            }
+            .tag(1)
+        }
+        
+        
     }
+            
 }
 
 struct ContentView_Previews: PreviewProvider {
